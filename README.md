@@ -37,7 +37,7 @@ For each user you are going to store in the .csv file the following information:
 
 ## Final comments
 Please keep in mind I am new to Python and I do not work as a programmer: I am pretty sure it would have been possible to write a better code... But, hey, in the end mine works too and that's what really counts! :-D
-If you found this script useful, don't forget to show some love to @Objectivist on FetLife :-D
+If you found this script useful, don't forget to show some love to [@Objectivist](https://fetlife.com/users/1296385) on FetLife :-D
 
 ## License
 
