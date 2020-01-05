@@ -37,6 +37,3 @@ For each user you are going to store in the .csv file some basic information:
 ## Final comments
 If you found this script useful, don't forget to show some love to [@Objectivist](https://fetlife.com/users/1296385) on FetLife :-D
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
