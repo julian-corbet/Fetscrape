@@ -34,24 +34,22 @@ for i in range(10):
     soup = BeautifulSoup(r2.content, 'lxml')
 
     #scrape data#
-    for results in soup.find_all('div', class_ ='w-100 br1 pointer bg-animate hover-bg-dark-primary bg-near-black'):
-        userID = results.find('a', {"class": 'link span f5 fw7 secondary'})
+    for results in soup.find_all('div', class_ ='w-100 br1 pointer bg-animate hover-bg-gray-950 bg-gray-900'):
+        userID = results.find('a', {"class": 'relative overflow-hidden dib link'})
         ID = (userID['href'])
         ID = ID.split('/')[2]
         print(ID)
-        nickname = userID.text
+        nickname = userID.get('title')
         print(nickname)
-        details = results.find('span', {"class": 'f6 fw7 silver'}).text
-        age_gender = details.split(' ')[0]
+        details = results.find('span', {"class": 'f6 fw7 gray-300'}).text
+        age_gender = details.split(' ')[0]   
         role = details.split(' ')[1]
         print(age_gender)
         print(role)
-        place = results.find('div', {"class": 'f6 lh-copy fw4 silver nowrap truncate'}).text
+        place = results.find('div', {"class": 'f6 lh-copy fw4 gray-300 nowrap truncate'}).text
         place = place.replace(',', '')
         print(place)
-        extras = results.find('div', {"class": 'relative pd1 f6 fw4 lh-copy mid-gray nowrap truncate'}).text
-        extras = extras.replace(',', '')
-        extras = extras.replace('·', '')
+        extras = results.find('div', {"class": 'f6 fw4 lh-copy gray-500 nowrap truncate'}).text
         print(extras)
         link = f"https://fetlife.com/users/{ID}"
         print(link)
