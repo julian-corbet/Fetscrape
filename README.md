@@ -28,12 +28,14 @@ For each user you are going to store in the .csv file some basic information:
 
 - User ID (for later reference; also useful to load profile information into a target system and prevent the creation of duplicates)
 - Username 
-- Age / Gender (I did not split them: I know, I am lazy, but you can still filter the results using "contains")
+- Age 
+- Gender
 - Role
 - Location
 - Extras (number of pictures / videos / posts)
 - Link to the profile page
 
 ## Final comments
+Special thanks to Jon557 for the contribution.
 If you found this script useful, don't forget to show some love to [@Objectivist](https://fetlife.com/users/1296385) on FetLife :-D
 
