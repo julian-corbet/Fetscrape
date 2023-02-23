@@ -7,7 +7,7 @@ import time
 #prepare csv#
 exportcsv = open('Fetscrape.csv', 'w', newline='')
 csvwriter = csv.writer(exportcsv)
-csvwriter.writerow(['User ID', 'Username', 'Age / Gender', 'Role', 'Location', 'Extras', 'Link'])
+csvwriter.writerow(['User ID', 'Username', 'Age', 'Gender', 'Role', 'Location', 'Extras', 'Link'])
 
 headers = {'user-agent': """Mozilla/5.0 (X11; Linux x86_64) """
                          """AppleWebKit/537.36 (KHTML, like Gecko) """
@@ -42,9 +42,20 @@ for i in range(10):
         nickname = userID.get('title')
         print(nickname)
         details = results.find('span', {"class": 'f6 fw7 gray-300'}).text
-        age_gender = details.split(' ')[0]   
+        age_gender = details.split(' ')[0]
+
+        # Capture length of digits (or escape when 4 digits long, prevents infinite loop where gender is omitted)
+        j = 1
+        while (age_gender[0:j].isdigit() and j <= 4): j += 1
+
+        # Offset pointer
+        j -= 1
+        age = age_gender[0:j]
+        gender = age_gender[j:]
+
         role = details.split(' ')[1]
-        print(age_gender)
+        print(age)
+        print(gender)
         print(role)
         place = results.find('div', {"class": 'f6 lh-copy fw4 gray-300 nowrap truncate'}).text
         place = place.replace(',', '')
@@ -57,7 +68,7 @@ for i in range(10):
         print()
 
         # export to csv#
-        csvwriter.writerow([ID, nickname, age_gender, role, place, extras, link])
+        csvwriter.writerow([ID, nickname, age, gender, role, place, extras, link])
 
         time.sleep(1)
 
